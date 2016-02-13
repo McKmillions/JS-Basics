@@ -102,13 +102,30 @@ codeEcho();
   Now, similar to the last problem, write a function called 'fnCounter' that accepts two parameters. The first parameter will be an anonymous function and the second parameter, 'N', will be a number. Now, in 'fnCounter', allow the anonymous funciton to be invoked 'N' number of times. After it's been invoked 'N' number of times, return 'STOP'.
 */
 
+function codeLove() {
+  return 'I love code';
+}
 
+var fnCounter = function(func, N) {
+  return function() {
+    if(N > 0) {
+      N--;
+      return func();
+    }
+    else {
+      return "STOP";
+    }
+  };
+};
+var invokeTwo = fnCounter(codeLove, 2);
+console.log(invokeTwo());
+console.log(invokeTwo());
+console.log(invokeTwo());
 
 //Next Problem
 
 
 
-/*
   var counter = function(){
     for (var i=1; i<=5; i++) {
       setTimeout( function timer(){
@@ -116,11 +133,12 @@ codeEcho();
       }, i*1000 );
     }
   };
+/*
 
   Above you have a function named counter. Examine the function (without running the code) then below write what you expect to happen when the funciton is invoked. *Hint: setTimeout calls a function or evaluates an expression after a specified number of milliseconds.
 
     //Answer Here
-
+Counts down from 5 and outputs a number multiplied by 1,000
 
   Now, run the function in your console and note what happpens.
 
