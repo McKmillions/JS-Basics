@@ -126,33 +126,55 @@ console.log(invokeTwo());
 
 
 
-  var counter = function(){
-    for (var i=1; i<=5; i++) {
-      setTimeout( function timer(){
-          console.log( i );
-      }, i*1000 );
-    }
-  };
+  // var counter = function(){
+  //   for (var i=1; i<=5; i++) {
+  //     setTimeout( function timer(){
+  //         console.log( i );
+  //     }, i*1000 );
+  //   }
+  // };
 /*
 
   Above you have a function named counter. Examine the function (without running the code) then below write what you expect to happen when the funciton is invoked. *Hint: setTimeout calls a function or evaluates an expression after a specified number of milliseconds.
 
     //Answer Here
-Counts down from 5 and outputs a number multiplied by 1,000
+  the counter function will come back undefined because setTimeout is localy stored in the timer.
 
   Now, run the function in your console and note what happpens.
 
   Was your answer right or wrong?
 
     //Answer Here
-
+Wrong.
 
   Fix the counter function so that it works the way you expect it to work. (logging 1 then 2 then 3, etc) (Note: No unit test for this one because of the timeout)
 */
 
     //Code Here
 
+  // var counter = function(){
+  //   for (var i=1; i<=5; i++) {
+  //     setTimeout( function timer(){
+  //         console.log( i );
+  //     }, i*1000 );
+  //   }
+  //     return timer();
+  // };
 
+
+var counter = function() {
+  for (var i = 1; i<=5; i++) {
+    runTimer(i);
+  }
+};
+
+function runTimer( x ){
+  setTimeout( function() {
+    console.log( x );
+  }, x * 1000 );
+}
+
+counter();
 
 //Next Problem
 
@@ -170,5 +192,19 @@ Counts down from 5 and outputs a number multiplied by 1,000
 
   *Hint: Don't let this fool you. Break down what's really happening here.
 */
+var funcArray = [
+    function funcArray0() { console.log('0') },
+    function funcArray1() { console.log('1') },
+    function funcArray2() { console.log('2') },
+    function funcArray3() { console.log('3') },
+    function funcArray4() { console.log('4') },
+    function funcArray5() { console.log('5') }
+]
 
+  funcArray[0]() //0
+  funcArray[1]() //1
+  funcArray[2]() //2
+  funcArray[3]() //3
+  funcArray[4]() //4
+  funcArray[5]() //5
 
